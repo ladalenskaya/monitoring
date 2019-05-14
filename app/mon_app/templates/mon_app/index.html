@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">-->
+    <title>Введите ссылку</title>
+    <link rel="stylesheet" href="{% static 'mon_app/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'mon_app/css/index.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'mon_app/images/favicon.ico' %}">
+  </head>
+  <body><br><br><br><br><br><br><br><br><br>
+    <form class="" action="{% url 'parsing_url' %}" method="post">
+      {% csrf_token %}
+      <div class="container">
+        <div class="input-group flex-nowrap mt-5">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1" style="background-color: #ffffff;"><a href="{% url 'support_url' %}"><img src="{% static "mon_app/images/favicon.ico" %}" height="20"></img></a></span>
+          </div>
+          <input id="url_target" name="url_target" type="text" class="form-control" placeholder="Введите ссылку" aria-describedby="url_target" value="{{ url_target }}">
+          <!-- <input id="page_count" name="page_count" type="text" class="form-control" placeholder="Введите количество страниц" aria-describedby="page_count" value="{{ page_count }}"> -->
+          <div class="input-group-append">
+              <input id="page_count" name="page_count" type="text" class="form-control" placeholder="Введите кол-во страниц" aria-describedby="page_count" value="{{ page_count }}">
+          </div>
+          <div class="input-group-append">
+            <button class="btn btn-success" type="submit" id="url_tagret">Парсить</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="container col-md-4">
+      <div class="input-group flex-nowrap mt-5">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1" style="background-color: #ffffff;"><a href="https://www.mvideo.ru/"><img src="{% static "mon_app/images/mvideo_logo.jpg" %}" height="20"></img></a></span>
+          <span class="input-group-text" id="basic-addon1" style="background-color: #ffffff;"><a href="https://www.citilink.ru/"><img src="{% static "mon_app/images/citilink_logo.png" %}" height="18"></img></a></span>
+          <span class="input-group-text" id="basic-addon1" style="background-color: #ffffff;"><a href="https://www.wildberries.ru/"><img src="{% static "mon_app/images/wildberries_logo.png" %}" height="18"></img></a></span>
+        </div>
+        <div class="input-group-append">
+          <a class="btn btn-success" href="{% url 'admin:index' %}">Панель администатора</a>
+        </div>
+      </div>
+    </div><br><br><br><br><br><br><br><br>
+  </body>
+</html>
